@@ -3109,6 +3109,42 @@ td:last-child {
 	margin-bottom: var(--vspace-0_5);
 }
 
+/* Single-column layout with responsive width */
+.column-layout {
+	display: grid;
+	grid-template-columns: 1fr; /* Single column */
+	row-gap: var(--gap); /* Vertical space between items */
+}
+
+.column-layout .grid-list-items__item {
+	width: 100%;          /* Full width on smaller screens */
+	max-width: 400px;     /* Limit width to 400px on larger screens */
+	margin: 0 auto;       /* Center-align on larger screens */
+	padding: 0 1rem;      /* Add padding for mobile spacing */
+}
+
+.column-layout .list-items__item p,
+.column-layout .list-items__item figure {
+	width: 100%; /* Ensures content does not exceed the container width */
+	text-align: justify;
+}
+
+.column-layout iframe {
+	width: 100%;       /* Video adapts to container width */
+	max-width: 400px;  /* Cap width at 400px on larger screens */
+	height: auto;      /* Maintain aspect ratio */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 480px) {
+	.column-layout .grid-list-items__item {
+		max-width: 100%; /* Remove max-width constraint on smaller screens */
+		padding: 0;      /* Adjust padding as needed for small screens */
+	}
+}
+
+
+
 /* ------------------------------------------------------------------- 
  * responsive:
  * grid layouts
